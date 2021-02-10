@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # Variables source Amazon Linux 2
-FILE_SHA256="563d3b53240d1abcbc443d7da9357cd5b2d3b4dc50f8424bab2c545f7409fedf"
-FILE_VERSION="2.0.20180924"
+FILE_SHA256="3ba323e9ccb021f97b7ce09ac7867cc34fe31533c32302c8b918cfb5dc1e2bbb"
+FILE_VERSION="2.0.20210126.0"
 FILE_URL="https://cdn.amazonlinux.com/os-images/${FILE_VERSION}/virtualbox"
 FILE_NAME="amzn2-virtualbox-${FILE_VERSION}-x86_64.xfs.gpt.vdi"
 
