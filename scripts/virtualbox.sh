@@ -5,12 +5,12 @@ set -x
 
 env
 
-if [ "$PACKER_BUILDER_TYPE" != "virtualbox-vm" ]; then
+if [ "${PACKER_BUILDER_TYPE}" != "virtualbox-ovf" ] || [ ! -f "/tmp/VBoxGuestAdditions.iso" ]; then
   exit 0
 fi
 
 # Install needed package for install Guest
-yum -y install bzip2 dkms make gcc kernel-devel kernel-header
+yum -y install bzip2 dkms make gcc kernel-devel-$(uname -r) kernel-header-$(uname -r)
 
 # Install Guest Additions with support for X
 yum -y install xorg-x11-server-Xorg
