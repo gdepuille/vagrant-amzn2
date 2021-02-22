@@ -3,4 +3,4 @@
 set -e
 set -x
 
-date | sudo tee /opt/vagrant_box_build_time
+date | tee /opt/vagrant_box_build_time

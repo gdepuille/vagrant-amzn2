@@ -52,6 +52,7 @@ VBoxManage storageattach ${VM_NAME} --storagectl "${SATA_STORAGE}" --port 0 --de
 VBoxManage storageattach ${VM_NAME} --storagectl "${IDE_STORAGE}" --port 0 --device 0 --type dvddrive --medium target/seed.iso
 VBoxManage modifyvm ${VM_NAME} --boot1 dvd --boot2 disk --boot3 none --boot4 none
 VBoxManage modifyvm ${VM_NAME} --cpus 2 --memory 2048 --vram 128
+VBoxManage modifyvm ${VM_NAME} --graphicscontroller vmsvga
 VBoxManage startvm ${VM_NAME} --type gui
 
 echo "Attente arret de la VM (provision cloud-init) ..."
@@ -70,5 +71,5 @@ echo "Suppression de la VM ..."
 VBoxManage unregistervm ${VM_NAME} --delete
 
 echo "Transformation en Vagrant avec Packer ..."
-packer validate packer.json
-packer build packer.json
+packer validate packer.json.pkr.hcl
+packer build packer.json.pkr.hcl

@@ -3,20 +3,22 @@
 set -e
 set -x
 
-if [ "$PACKER_BUILDER_TYPE" != "virtualbox-ovf" ]; then
+env
+
+if [ "$PACKER_BUILDER_TYPE" != "virtualbox-vm" ]; then
   exit 0
 fi
 
 # Install needed package for install Guest
-sudo yum -y install bzip2 dkms make gcc kernel-devel kernel-header
+yum -y install bzip2 dkms make gcc kernel-devel kernel-header
 
 # Install Guest Additions with support for X
-sudo yum -y install xorg-x11-server-Xorg
+yum -y install xorg-x11-server-Xorg
 
-sudo systemctl start dkms
-sudo systemctl enable dkms
+systemctl start dkms
+systemctl enable dkms
 
-sudo mount -o loop,ro ~/VBoxGuestAdditions.iso /mnt/
-sudo sh /mnt/VBoxLinuxAdditions.run || :
-sudo umount /mnt/
-rm -f ~/VBoxGuestAdditions.iso
+mount -o loop,ro /tmp/VBoxGuestAdditions.iso /mnt/
+sh /mnt/VBoxLinuxAdditions.run || :
+umount /mnt/
+rm -f /tmp/VBoxGuestAdditions.iso
