@@ -17,12 +17,12 @@
 # https://www.packer.io/docs/from-1.5/variables#type-constraints for more info.
 variable "ova_url" {
   type = string
-  default = "https://cdn.amazonlinux.com/os-images/2.0.20210126.0/vmware/amzn2-vmware_esx-2.0.20210126.0-x86_64.xfs.gpt.ova"
+  default = "https://cdn.amazonlinux.com/os-images/2.0.20210326.0/vmware/amzn2-vmware_esx-2.0.20210326.0-x86_64.xfs.gpt.ova"
 }
 
 variable "ova_checksum" {
   type = string
-  default = "sha256:d69a728855c08cd486320a4cd4e53aec07521383339bf8bbcc74d82344553921"
+  default = "sha256:8d2adc06fba12cb30530a5951af3fd49fdd4511b1cab15fd0800261d0358a216"
 }
 
 variable "compression_level" {
