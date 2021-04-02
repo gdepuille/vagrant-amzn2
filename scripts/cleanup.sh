@@ -4,7 +4,7 @@ set -e
 set -x
 
 if rpm -q --whatprovides kernel | grep -Fqv "$(uname -r)"; then
-  rpm -q --whatprovides kernel | grep -Fv "$(uname -r)" | xargs sudo yum -y erase
+  rpm -q --whatprovides kernel | grep -Fv "$(uname -r)" | xargs yum -y erase
 fi
 
-sudo yum clean all
+yum clean all

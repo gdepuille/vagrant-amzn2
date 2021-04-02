@@ -25,16 +25,8 @@ runcmd:
   # Stop cloud-init from randomizing root password on startup
   - sed -i 's/.*root:RANDOM/#&/g' /etc/cloud/cloud.cfg.d/99_onprem.cfg
 
+  # Definition de la Timezone
+  - ln -fs /usr/share/zoneinfo/Europe/Paris /etc/localtime
+
   # Change keymap to french
   - system-config-keyboard --noui fr
-
-  # Delete cache of Yum
-  - yum clean all
-  - rm -Rf /var/cache/yum
-
-  # Optimize virtual disk
-  - dd if=/dev/zero of=/ZERO bs=1M
-  - rm -f /ZERO
-
-  # Shutdown
-  - poweroff
